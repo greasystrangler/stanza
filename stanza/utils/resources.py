@@ -21,7 +21,8 @@ logger = logging.getLogger('stanza')
 
 # set home dir for default
 HOME_DIR = str(Path.home())
-DEFAULT_RESOURCES_URL = 'https://raw.githubusercontent.com/stanfordnlp/stanza-resources/master'
+DEFAULT_RESOURCES_BRANCH = os.getenv('STANZA_RESOURCES_BRANCH', 'master')
+DEFAULT_RESOURCES_URL = 'https://raw.githubusercontent.com/stanfordnlp/stanza-resources/' + DEFAULT_RESOURCES_BRANCH
 DEFAULT_MODEL_DIR = os.getenv('STANZA_RESOURCES_DIR', os.path.join(HOME_DIR, 'stanza_resources'))
 
 # given a language and models path, build a default configuration
