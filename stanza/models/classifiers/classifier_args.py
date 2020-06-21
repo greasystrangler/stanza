@@ -29,8 +29,8 @@ def add_pretrain_args(parser):
     parser.add_argument('--wordvec_raw_file', type=str, default=None, help='Exact name of the raw wordvec file to read')
     parser.add_argument('--wordvec_dir', type=str, default='extern_data', help='Directory of word vectors')
     parser.add_argument('--wordvec_type', type=lambda x: WVType[x.upper()], default='word2vec', help='Different vector types have different options, such as google 300d replacing numbers with #')
-    # TODO: the second particle should reflect the actual treebank, eg SST for sentiment treebank
     parser.add_argument('--shorthand', type=str, default='en_ewt', help="Treebank shorthand, eg 'en' for English")
+    parser.add_argument('--extra_wordvec_dim', type=int, default=0, help="Extra dim of word vectors - will be trained")
 
 def add_device_args(parser):
     parser.add_argument('--cuda', action='store_true', help='Use CUDA for training/testing', default=torch.cuda.is_available())
